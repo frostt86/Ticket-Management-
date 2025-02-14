@@ -1,0 +1,92 @@
+<body>
+<div class="container">
+  <!-- Left Side: Form Section and Control Panel -->
+  <div class="left-section">
+    <!-- Form Section -->
+    <div class="form-container">
+      <h2>Configure Ticketing System</h2>
+      <!-- Form for configuring the ticketing system -->
+      <form [formGroup]="configForm" (ngSubmit)="onSubmit()">
+        <!-- Input field for total tickets -->
+        <label for="totalTickets">Total Tickets</label>
+        <input id="totalTickets" formControlName="totalTickets" type="number" />
+
+        <!-- Input field for ticket release rate -->
+        <label for="releaseRate">Ticket Release Rate (ms)</label>
+        <input id="releaseRate" formControlName="releaseRate" type="number" />
+
+        <!-- Input field for ticket retrieval rate -->
+        <label for="retrievalRate">Ticket Retrieval Rate (ms)</label>
+        <input id="retrievalRate" formControlName="retrievalRate" type="number" />
+
+        <!-- Input field for max ticket capacity -->
+        <label for="maxCapacity">Max Ticket Capacity</label>
+        <input id="maxCapacity" formControlName="maxCapacity" type="number" />
+
+        <!-- Button group for form actions -->
+        <div class="button-group">
+          <!-- Submit button for initializing the ticket pool -->
+          <button type="submit" [disabled]="configForm.invalid">Initialize Pool</button>
+          <!-- Button for saving the current configuration -->
+          <button type="button" (click)="saveConfiguration()" [disabled]="configForm.invalid"> Save Configuration
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <!-- Control Panel Section -->
+    <div class="startStop-container">
+      <h3>Control Panel</h3>
+      <!-- Controls for managing the number of vendors -->
+      <div class="vendor-controls">
+        <label>Vendors:</label>
+        <button class="decrement" (click)="decrementVendor()">-</button> <!-- Decrease vendor count -->
+        <span>{{ vendorCount }}</span> <!-- Display current vendor count -->
+        <button class="increment" (click)="incrementVendor()">+</button> <!-- Increase vendor count -->
+      </div>
+
+      <!-- Controls for managing the number of consumers -->
+      <div class="consumer-controls">
+        <label>Customer:</label>
+        <button class="decrement" (click)="decrementConsumer()">-</button> <!-- Decrease consumer count -->
+        <span>{{ consumerCount }}</span> <!-- Display current consumer count -->
+        <button class="increment" (click)="incrementConsumer()">+</button> <!-- Increase consumer count -->
+      </div>
+
+      <!-- Buttons for starting, stopping, and resetting processes -->
+      <button (click)="startGeneration()">Start</button>
+      <button (click)="stopProcesses()">Stop</button>
+      <button (click)="resetProcess()">Reset</button>
+    </div>
+  </div>
+
+  <!-- Right Side: Logs and Chart Section -->
+  <div class="right-section">
+    <!-- Real-Time Logs Section -->
+    <div class="logger-container" #logContainer>
+      <h3>Real-Time Logs</h3>
+      <!-- Display logs dynamically with styles based on their content -->
+      <div
+        class="log"
+        *ngFor="let log of logs"
+        [ngClass]="{ 'purchased-ticket': log.includes('Purchased ticket'), 'ticket-generated': log.includes('Generated ticket') }">
+        {{ log }}
+      </div>
+      <!-- Button to clear all logs -->
+      <button (click)="clearLogs()">Clear Logs</button>
+    </div>
+
+    <!-- Chart Section -->
+    <div class="chart-container">
+      <!-- Chart component -->
+      <app-charts></app-charts>
+      <!-- Canvas for rendering the chart -->
+      <canvas id="ticketPoolChart" style="width: 800px; height: 550px; color: white;"></canvas>
+
+      <!-- Buttons for managing chart updates -->
+      <button (click)="startChartUpdates()">Start Updates</button>
+      <button (click)="stopChartUpdates()">Stop Chart Updates</button>
+    </div>
+  </div>
+</div>
+</body>

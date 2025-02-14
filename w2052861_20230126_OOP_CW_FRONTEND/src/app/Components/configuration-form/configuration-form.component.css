@@ -1,0 +1,189 @@
+/* General body styling */
+body {
+  margin: 0; /* Remove default margins */
+  padding: 0; /* Remove default padding */
+  font-family: sans-serif; /* Set default font */
+  background: linear-gradient(135deg, #2f0c43, #000000); /* Gradient background */
+  color: #ffffff; /* White text color */
+}
+
+/* Styling for headings and buttons */
+h1, h2, h3, button {
+  font-family: 'Poppins', sans-serif; /* Use 'Poppins' font */
+  color: white; /* White text color */
+  font-weight: 600; /* Bold font weight */
+}
+
+/* Grid container for layout */
+.container {
+  display: grid; /* Use grid layout */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid layout */
+  gap: 20px; /* Space between grid items */
+  padding: 20px; /* Padding around the container */
+}
+
+/* Shared styling for various containers */
+.form-container, .startStop-container, .logger-container, .chart-container {
+  background-color: rgba(255, 255, 255, 0.11); /* Transparent white background */
+  backdrop-filter: blur(40px); /* Blur effect */
+  margin-bottom: 20px; /* Space below each container */
+  padding: 20px; /* Inner padding */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  transition: transform 0.2s, box-shadow 0.2s; /* Smooth hover transition */
+  width: 100%; /* Full width */
+  box-sizing: border-box; /* Include padding in width calculation */
+}
+
+/* Hover effect for containers */
+.form-container:hover, .startStop-container:hover, .logger-container:hover, .chart-container:hover {
+  transform: translateY(-5px); /* Slight upward movement */
+  box-shadow: 0 12px 25px rgb(76, 9, 108); /* Stronger shadow effect */
+}
+
+/* Styling for labels and spans */
+label, span {
+  font-size: 14px; /* Smaller font size */
+  font-weight: bold; /* Bold text */
+  font-family: 'Poppins'; /* Use 'Poppins' font */
+}
+
+/* Input field styling */
+input {
+  width: 100%; /* Full width */
+  padding: 10px; /* Inner padding */
+  margin-bottom: 15px; /* Space below input */
+  border-radius: 5px; /* Rounded corners */
+  box-sizing: border-box; /* Include padding in width */
+  background: rgb(193, 166, 248); /* Light purple background */
+  color: #000000; /* Black text */
+  font-family: 'Poppins'; /* Use 'Poppins' font */
+}
+
+/* Button styling */
+button {
+  width: 100%; /* Full width */
+  background: #000000; /* Black background */
+  color: #c1a6f8; /* Light purple text */
+  padding: 12px; /* Inner padding */
+  border: none; /* No border */
+  border-radius: 50px; /* Rounded corners */
+  margin-bottom: 10px; /* Space below button */
+  font-family: 'Poppins', sans-serif; /* Use 'Poppins' font */
+  font-weight: 500; /* Medium font weight */
+  font-size: 14px; /* Font size */
+  cursor: pointer; /* Pointer cursor */
+  transition: background-color 0.3s ease, transform 0.2s; /* Smooth hover transition */
+}
+
+/* Hover effect for buttons */
+button:hover {
+  background: #000000; /* Keep black background */
+  color: #ffffff; /* Change text color to white */
+  transform: scale(1.03); /* Slight zoom effect */
+}
+
+/* Disabled button styling */
+button:disabled {
+  background: linear-gradient(135deg, #b73bff, #512c95); /* Gradient background */
+  cursor: not-allowed; /* Change cursor to indicate disabled state */
+}
+
+/* Controls styling for vendors and consumers */
+.vendor-controls, .consumer-controls {
+  display: flex; /* Flexbox layout */
+  align-items: center; /* Align items vertically */
+  justify-content: space-between; /* Space out items evenly */
+  margin: 10px 0; /* Vertical margin */
+}
+
+/* Styling for increment and decrement buttons */
+button.increment, button.decrement {
+  display: flex; /* Flexbox layout */
+  align-items: center; /* Center align items vertically */
+  justify-content: center; /* Center align items horizontally */
+  background-color: rgb(0, 0, 0); /* Black background */
+  color: #4c096c; /* Purple text */
+  border: none; /* No border */
+  border-radius: 50%; /* Circular shape */
+  width: 35px; /* Fixed width */
+  height: 35px; /* Fixed height */
+  font-family: 'Poppins', sans-serif; /* Use 'Poppins' font */
+  font-weight: 600; /* Bold font weight */
+  font-size: 18px; /* Font size */
+  cursor: pointer; /* Pointer cursor */
+  transition: background-color 0.3s, transform 0.2s; /* Smooth hover transition */
+}
+
+/* Hover effect for increment and decrement buttons */
+button.increment:hover, button.decrement:hover {
+  background-color: #4c096c; /* Purple background */
+  color: #000000; /* Black text */
+  transform: scale(1.1); /* Slight zoom effect */
+}
+
+/* Logger container styling */
+.logger-container {
+  max-height: 521px; /* Limit height with scrollable area */
+  overflow-y: auto; /* Enable vertical scrolling */
+}
+
+/* Styling for individual log entries */
+.log {
+  font-size: 14px; /* Smaller font size */
+  font-family: 'Poppins'; /* Use 'Poppins' font */
+  padding: 10px; /* Inner padding */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Subtle bottom border */
+  background-color: rgba(255, 255, 255, 0.2); /* Light background color */
+  border-radius: 5px; /* Rounded corners */
+  margin-bottom: 5px; /* Space below each log */
+  transition: transform 0.2s, box-shadow 0.2s; /* Smooth hover transition */
+}
+
+/* Hover effect for log entries */
+.log:hover {
+  transform: translateY(-2px); /* Slight upward movement */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
+}
+
+/* Styling for purchased ticket logs */
+.purchased-ticket {
+  background-color: #4a1078; /* Dark purple background */
+  color: #fff; /* White text */
+}
+
+/* Styling for ticket-generated logs */
+.ticket-generated {
+  background-color: #d1b2f2; /* Light purple background */
+  color: #333; /* Dark gray text */
+}
+
+/* Styling for icon buttons */
+.icon-button {
+  background-color: transparent; /* Transparent background */
+  border: none; /* No border */
+  color: #6a1b9a; /* Purple color */
+  font-size: 18px; /* Font size */
+  font-family: 'Poppins', sans-serif; /* Use 'Poppins' font */
+  cursor: pointer; /* Pointer cursor */
+  margin: 10px; /* Outer margin */
+  transition: transform 0.2s, color 0.3s; /* Smooth hover transition */
+}
+
+/* Hover effect for icon buttons */
+.icon-button:hover {
+  color: #4a1078; /* Darker purple color */
+}
+
+/* Group of buttons styling */
+.button-group {
+  display: flex; /* Flexbox layout */
+  flex-wrap: wrap; /* Allow wrapping of buttons */
+  gap: 10px; /* Space between buttons */
+}
+
+/* Chart container styling */
+.chart-container {
+  width: 100%; /* Full width */
+  height: 550px; /* Fixed height */
+}
