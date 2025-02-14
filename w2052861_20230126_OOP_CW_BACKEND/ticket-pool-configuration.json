@@ -1,0 +1,10 @@
+{
+  "id" : 81,
+  "totalTickets" : 100,
+  "ticketReleaseRate" : 5,
+  "customerTicketRetrievalRate" : 2,
+  "maxTicketCapacity" : 200,
+  "ticketsGenerated" : 0,
+  "tickets" : [ ],
+  "available" : false
+}
